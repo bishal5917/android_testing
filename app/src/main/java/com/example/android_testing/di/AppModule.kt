@@ -2,10 +2,13 @@ package com.example.android_testing.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.android_testing.data.local.ShoppingDao
 import com.example.android_testing.utils.Constants.BASE_URL
 import com.example.android_testing.utils.Constants.DATABASE_NAME
 import com.example.android_testing.data.local.ShoppingItemDatabase
 import com.example.android_testing.data.remote.PixabayApi
+import com.example.android_testing.repositories.MainRepository
+import com.example.android_testing.repositories.MainRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,4 +43,11 @@ class AppModule {
             .build()
             .create(PixabayApi::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun providesDefaultShoppingRepository(
+        dao : ShoppingDao,
+        api : PixabayApi
+    ) = MainRepositoryImpl(dao,api) as MainRepository
 }
