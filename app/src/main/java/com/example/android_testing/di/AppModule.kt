@@ -2,8 +2,8 @@ package com.example.android_testing.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.android_testing.Constants.BASE_URL
-import com.example.android_testing.Constants.DATABASE_NAME
+import com.example.android_testing.utils.Constants.BASE_URL
+import com.example.android_testing.utils.Constants.DATABASE_NAME
 import com.example.android_testing.data.local.ShoppingItemDatabase
 import com.example.android_testing.data.remote.PixabayApi
 import dagger.Module

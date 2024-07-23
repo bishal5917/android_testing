@@ -1,4 +1,4 @@
-package com.example.android_testing
+package com.example.android_testing.utils
 
 object Constants {
 
