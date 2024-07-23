@@ -8,31 +8,44 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.example.android_testing.getOrAwaitValue
 import com.google.common.truth.Truth.assertThat
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import javax.inject.Inject
+import javax.inject.Named
 
 @ExperimentalCoroutinesApi
-@RunWith(AndroidJUnit4::class)
+//@RunWith(AndroidJUnit4::class)
+@HiltAndroidTest
 @SmallTest
 class ShoppingDaoTest {
+
+    @get:Rule
+    val hiltRule = HiltAndroidRule(this)
 
     //Explicitly tell junit that to execute code one after another
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var database: ShoppingItemDatabase
+    @Inject
+    @Named("test_db")
+    lateinit var database: ShoppingItemDatabase
+
+
     private lateinit var dao: ShoppingDao
 
     @Before
     fun setup(){
-        database = Room.inMemoryDatabaseBuilder(
-            ApplicationProvider.getApplicationContext(),
-            ShoppingItemDatabase::class.java
-        ).allowMainThreadQueries().build()
+//        database = Room.inMemoryDatabaseBuilder(
+//            ApplicationProvider.getApplicationContext(),
+//            ShoppingItemDatabase::class.java
+//        ).allowMainThreadQueries().build()
+        hiltRule.inject()
         dao = database.shoppingDao()
     }
 
