@@ -9,6 +9,7 @@ import com.example.android_testing.data.local.ShoppingItemDatabase
 import com.example.android_testing.data.remote.PixabayApi
 import com.example.android_testing.repositories.MainRepository
 import com.example.android_testing.repositories.MainRepositoryImpl
+import com.example.android_testing.ui.MainViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,4 +51,9 @@ class AppModule {
         dao : ShoppingDao,
         api : PixabayApi
     ) = MainRepositoryImpl(dao,api) as MainRepository
+
+    //viewmodel
+    @Singleton
+    @Provides
+    fun providesMainViewModel(repo:MainRepository) = MainViewModel(repo)
 }

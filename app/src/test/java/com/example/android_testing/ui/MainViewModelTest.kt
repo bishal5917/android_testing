@@ -1,6 +1,7 @@
 package com.example.android_testing.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.fragment.app.testing.launchFragmentInContainer
 import com.example.android_testing.MainCoroutineRule
 import com.example.android_testing.getOrAwaitValueTest
 import com.example.android_testing.repositories.FakeMainRepository

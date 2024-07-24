@@ -32,6 +32,11 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -44,14 +49,9 @@ dependencies {
     // Material Design
     implementation 'com.google.android.material:material:1.3.0-alpha02'
 
-    // Architectural Components
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-runtime:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
 
     // Room
     implementation "androidx.room:room-runtime:2.2.5"
@@ -69,8 +69,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5'
 
     // Coroutine Lifecycle Scopes
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
 
     // Navigation Components
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
@@ -114,4 +114,6 @@ dependencies {
     //For testing by hilt
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.42'
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.42'
+    debugImplementation "androidx.fragment:fragment-testing:1.3.0-alpha08"
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
 }
