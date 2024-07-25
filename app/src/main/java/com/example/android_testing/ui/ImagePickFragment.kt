@@ -47,7 +47,6 @@ class ImagePickFragment : Fragment() {
         imageSearch()
         observe()
         imageAdapter.setOnItemClickListener {
-            Toast.makeText(requireContext(), "Clicked", Toast.LENGTH_SHORT).show()
             viewModel.setCurrentImageUrl(it)
             findNavController().popBackStack()
         }

@@ -52,14 +52,13 @@ class ImageAdapter @Inject constructor(
     }
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val url = images[position]
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { click ->
+                click(url)
+            }
+        }
         holder.itemView.apply {
             glide.load(url).into(findViewById(R.id.ivShoppingImage))
-
-            setOnItemClickListener {
-                onItemClickListener?.let {click->
-                    click(url)
-                }
-            }
         }
     }
 

@@ -7,6 +7,7 @@ import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import com.example.android_testing.R
 import com.example.android_testing.adapters.ImageAdapter
+import com.example.android_testing.adapters.ItemAdapter
 import com.example.android_testing.data.local.ShoppingDao
 import com.example.android_testing.utils.Constants.BASE_URL
 import com.example.android_testing.utils.Constants.DATABASE_NAME
@@ -84,6 +85,12 @@ class AppModule {
     fun providesImageAdaptor(
         glide : RequestManager
     ) = ImageAdapter(glide)
+
+    @Singleton
+    @Provides
+    fun providesItemAdaptor(
+        glide : RequestManager
+    ) = ItemAdapter(glide)
 
     @Provides
     @Singleton

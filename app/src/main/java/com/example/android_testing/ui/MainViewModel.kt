@@ -19,9 +19,9 @@ class MainViewModel @Inject constructor(
     private val repository: MainRepository
 ) : ViewModel() {
 
-    val shoppingItems = repository.observeAllShoppingItem()
+    val shoppingItems: LiveData<List<ShoppingItem>> = repository.observeAllShoppingItem()
 
-    val totalPrice = repository.observeTotalPrice()
+    val totalPrice: LiveData<Float> = repository.observeTotalPrice()
 
     private val _images = MutableLiveData<Event<Resource<ImageResponse>>>()
     val images : LiveData<Event<Resource<ImageResponse>>> = _images
@@ -38,6 +38,7 @@ class MainViewModel @Inject constructor(
 
     fun deleteShoppingItem(shoppingItem : ShoppingItem) = viewModelScope.launch {
         repository.deleteShoppingItem(shoppingItem)
+        repository.observeTotalPrice()
     }
 
     fun insertItemIntoDb(shoppingItem : ShoppingItem) = viewModelScope.launch {
