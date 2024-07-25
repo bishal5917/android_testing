@@ -31,7 +31,35 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="67157732">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="2193CD891773" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="LANDI&#10; DX8000" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="795806861">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="2193CD891773" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="LANDI&#10; DX8000" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1817638862">
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">

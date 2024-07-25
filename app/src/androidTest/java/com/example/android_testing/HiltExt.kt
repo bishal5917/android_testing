@@ -17,19 +17,17 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     themeResId : Int = androidx.fragment.testing.R.style.FragmentScenarioEmptyFragmentActivityTheme,
     fragmentFactory: FragmentFactory? = null,
     crossinline action: T.() -> Unit = {}
-){
+) {
     val mainActivityIntent = Intent.makeMainActivity(
         ComponentName(
             ApplicationProvider.getApplicationContext(),
             HiltTestActivity::class.java
         )
-    ).putExtra(FragmentScenario.EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY,themeResId)
+    ).putExtra(FragmentScenario.EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY, themeResId)
 
-    ActivityScenario.launch<HiltTestActivity>(mainActivityIntent).onActivity {activity ->
-        fragmentFactory.let {
-            if (it!=null){
-                activity.supportFragmentManager.fragmentFactory = it!!
-            }
+    ActivityScenario.launch<HiltTestActivity>(mainActivityIntent).onActivity { activity ->
+        fragmentFactory?.let {
+            activity.supportFragmentManager.fragmentFactory = it
         }
         val fragment = activity.supportFragmentManager.fragmentFactory.instantiate(
             Preconditions.checkNotNull(T::class.java.classLoader),
@@ -38,9 +36,21 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
         fragment.arguments = fragmentArgs
 
         activity.supportFragmentManager.beginTransaction()
-            .add(android.R.id.content,fragment,"")
+            .add(android.R.id.content, fragment, "")
             .commitNow()
 
         (fragment as T).action()
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+

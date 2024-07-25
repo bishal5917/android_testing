@@ -4,7 +4,7 @@ object Constants {
 
     const val DATABASE_NAME = "offline_database"
 
-    const val BASE_URL = "https://pixabay.com/";
+    const val BASE_URL = "https://pixabay.com/api/";
 
     const val MAX_NAME_LENGTH = 20
 

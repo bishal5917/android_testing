@@ -7,5 +7,5 @@ data class ImageResponse(
 )
 
 data class ImageResult(
-    val previewUrl : String
+    val previewURL : String
 )

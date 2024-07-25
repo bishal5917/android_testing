@@ -34,13 +34,13 @@ class MainRepositoryImpl @Inject constructor(
             val res = pixabayApi.searchForImage(image)
             if (res.isSuccessful){
                 res.body()?.let {
-                    return@let Resource.success(it)
+                    return Resource.success(it)
                 } ?: Resource.error("Unknown error",null)
             }else{
                 Resource.error("Unknown error",null)
             }
         }catch (ex: Exception){
-            Resource.error("Couldn't reach server",null)
+            Resource.error(ex.message.toString() ?: "Couldn't reach server",null)
         }
     }
 }
